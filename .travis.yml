@@ -1,9 +1,12 @@
+os: linux
+dist: bionic
+
 language: node_js
 node_js:
   - "12"
 
 services:
-  - redis-server
+  - redis
 
 before_install:
   - sudo systemctl start redis-server
