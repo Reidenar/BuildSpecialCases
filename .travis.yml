@@ -1,17 +1,25 @@
 os: linux
-
 language: java
 services:
   - docker
 cache: bundler
 dist: focal
-
 install: skip
 
 jobs:
   include:
-    - name: failing
-      script: true
+    - stage: "Tests" # naming the Tests stage
+      name: "Unit Tests" # names the first Tests stage job
+      script:
+        - echo "Unit Tests"
+    - stage: "Integration Tests"
+      name: "Integration Tests" # names the second Tests stage job
+      script:
+        - echo "Unit Tests"
+    - stage: deploy
+      name: "Deploy Test"
+      script:
+        - echo "Deploy"
 
 after_success:
   - echo done
